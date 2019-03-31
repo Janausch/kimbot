@@ -76,7 +76,7 @@ if (cluster.isWorker) {
                         });
                         break;
                     } else {
-                        fs.appendFile("witze.txt", fuehr[0] + "<joke>", function (err) {
+                        fs.appendFile("witze.txt", "<joke>" + fuehr[0], function (err) {
                             if (err) {
                                 return console.log(err);
                             }
@@ -131,18 +131,18 @@ if (cluster.isWorker) {
                         });
                         break;
                     }
-                //case 'status':
-                //    bot.sendMessage({
-                //        to: channelID,
-                //        message: "My Body is ready for you <@!" + userID + ">"
-                //    });
-                //    break;
-                //case 'newslett':
-                //    bot.sendMessage({
-                //        to: channelID,
-                //        message: "My Body is ready for you <@!" + userID + ">"
-                //    });
-                //break;
+                    //case 'status':
+                    //    bot.sendMessage({
+                    //        to: channelID,
+                    //        message: "My Body is ready for you <@!" + userID + ">"
+                    //    });
+                    //    break;
+                    //case 'newslett':
+                    //    bot.sendMessage({
+                    //        to: channelID,
+                    //        message: "My Body is ready for you <@!" + userID + ">"
+                    //    });
+                    //break;
                 case 'commands':
                     bot.sendMessage({
                         to: channelID,
@@ -282,7 +282,7 @@ if (cluster.isWorker) {
         var fs = require("fs");
         var text = fs.readFileSync("./witze.txt").toString('utf-8');
         var arrayOfJokes = text.split("<joke>");
-        var calc = Math.floor(Math.random() * (arrayOfJokes.length - 1));
+        var calc = Math.floor(Math.random() * (arrayOfJokes.length));
         bot.sendMessage({
             to: channelID,
             message: "```" + arrayOfJokes[calc] + "```"
