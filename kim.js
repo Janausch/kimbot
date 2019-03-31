@@ -158,12 +158,12 @@ if (cluster.isWorker) {
                 case '#feierabend':
                     feierabend(channelID, userID);
                     break;
-                case 'penis':
-                    bot.sendMessage({
-                        to: channelID,
-                        message: "Penisbilder bitte direkt an Kim per PM. Die Größe ist entscheidend."
-                    });
-                    break;
+//                case 'penis':
+//                    bot.sendMessage({
+//                        to: channelID,
+//                        message: "Penisbilder bitte direkt an Kim per PM. Die Größe ist entscheidend."
+//                    });
+//                    break;
                 case 'motivation':
                     motivation(channelID, userID);
                     break;
