@@ -1,0 +1,28 @@
+{
+  "name": "kim-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "kim.js",
+  "author": "sup",
+  "dependencies": {
+    "after-load": "^1.0.4",
+    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+    "discord.js": "^11.4.2",
+    "discord.js-commando": "^0.10.0",
+    "filedownloader": "^1.2.7",
+    "fs": "0.0.1-security",
+    "get-json": "^1.0.0",
+    "http": "0.0.0",zz
+    "https": "^1.0.0",
+    "image-downloader": "^3.§4.2",
+    "nanotimer": "^0.3.15",
+
+"^2.88.0",
+    "requests": "^0.2.2",
+    "rss-parser": "^3.7.0",
+    "sleep": "^5.2.3",
+    "twitch-api-v5": "^2.0.4",
+    "webpage": "^0.3.0",
+    "winston": "^2.4.4"
+  }
+}
