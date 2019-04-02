@@ -76,6 +76,7 @@ if (cluster.isWorker) {
             var fuehr = message.substring(1).split('"');
             var cmd = args[0];
             args = args.splice(1);
+			var zwei = args[0];
             fuehr = fuehr.splice(1);
             switch (cmd.toLowerCase()) { // ignore case in commands
                 case 'addjoke':
@@ -112,14 +113,11 @@ if (cluster.isWorker) {
                 case 'status':
                     respond(channelID, "Ich bin da :) <@!" + userID + ">");
                     break;
-                    //case 'newslett':
-                    //    respond(channelID, "My Body is ready for you <@!" + userID + ">");
-                    //    break;
-                case '#bestof':
-                    rnd(channelID, userID);
-                    break;
                 case 'joke':
-                    joke(channelID, userID);
+                      joke(channelID, userID);
+                      break;
+				case 'knuff':
+                    knuff(channelID, userID, zwei);
                     break;
                 case 'motivation':
                     motivation(channelID, userID);
@@ -211,7 +209,7 @@ if (cluster.isWorker) {
                                 },
                             ],
                             footer: {
-                                text: "Freiraumbot is created by <@252440250176110592>",
+                                text: "Freiraumbot is created by 'sup",
                             },
                             "description": ""
                         }
@@ -300,8 +298,11 @@ if (cluster.isWorker) {
         var el = randomElement("./quotes.txt", "<quote>");
         respond(channelID, "```" + el + "```");
     }
-
-
+	function knuff(channelID, userID, zwei) {
+		console.log(zwei)
+        var el = randomElement("./knuff.txt", "<knuff>");
+        respond(channelID, "<@!" + userID + ">" + el)
+    }
 
     function checkblog(channelID, userID) {
         let Parser = require('rss-parser');
