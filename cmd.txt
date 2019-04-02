@@ -1,0 +1,10 @@
+status;text;Ich bin da :) @user<cmd>
+joke;file;witze.txt;<joke><cmd>
+knuff;file;knuff.txt;<knuff><cmd>
+motivation;file;motivation.txt;<moti><cmd>
+quotes;file;quotes.txt;<zitat><cmd>
+thomas;text;Das Leben ist wie eine Schachtel Pralinen – Alles zum Kotzen.<cmd>
+ne;text;Ich hab heut leider kein Foto für dich.<cmd>
+glübe;text;Das Beste am Tag bist du ! :heart_exclamation:<cmd>
+mimimi;text;Vom Mond aus betrachtet spielt das ganze keine so große Rolle mehr.<cmd>
+wave;text;<@255311220821852160> is wonderful.<cmd>

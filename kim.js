@@ -72,11 +72,16 @@ if (cluster.isWorker) {
         // Our bot needs to know if it will execute a command
         // It will listen for messages that will start with `!`
         if (message.substring(0, 1) == '!') {
+
+
             var args = message.substring(1).split(' ');
             var fuehr = message.substring(1).split('"');
             var cmd = args[0];
             args = args.splice(1);
-			var zwei = args[0];
+            var zwei = args[0];
+            if (checkCommand(channelID, cmd, args, userID)) {
+                return;
+            }
             fuehr = fuehr.splice(1);
             switch (cmd.toLowerCase()) { // ignore case in commands
                 case 'addjoke':
@@ -110,36 +115,36 @@ if (cluster.isWorker) {
                         respond(channelID, "Motivation (Nr. " + textbyLine.length + ") erfolgreich ergänzt, vielen Dank für deinen Beitrag.");
                         break;
                     }
-                case 'status':
-                    respond(channelID, "Ich bin da :) <@!" + userID + ">");
-                    break;
-                case 'joke':
-                      joke(channelID, userID);
-                      break;
-				case 'knuff':
-                    knuff(channelID, userID, zwei);
-                    break;
-                case 'motivation':
-                    motivation(channelID, userID);
-                    break;
-                case 'quote':
-                    quote(channelID, userID);
-                    break;
+    //            case 'status':
+    //                respond(channelID, "Ich bin da :) <@!" + userID + ">");
+    //                break;
+    //            case 'joke':
+    //                  joke(channelID, userID);
+    //                  break;
+				//case 'knuff':
+    //                knuff(channelID, userID, zwei);
+    //                break;
+    //            case 'motivation':
+    //                motivation(channelID, userID);
+    //                break;
+    //            case 'quote':
+    //                quote(channelID, userID);
+    //                break;
                 case 'dl':
                     checkblog(channelID, userID);
                     break;
-                case 'thomas':
-                    respond(channelID, "Das Leben ist wie eine Schachtel Pralinen – Alles zum Kotzen.");
-                    break;
-                case 'ne':
-                    respond(channelID, "Ich hab heut leider kein Foto für dich.");
-                    break;
-                case 'glübe':
-                    respond(channelID, "Das Beste am Tag bist du ! :heart_exclamation:");
-                    break;
-                case 'mimimi':
-                    respond(channelID, "Vom Mond aus betrachtet spielt das ganze keine so große Rolle mehr.");
-                    break;
+                //case 'thomas':
+                //    respond(channelID, "Das Leben ist wie eine Schachtel Pralinen – Alles zum Kotzen.");
+                //    break;
+                //case 'ne':
+                //    respond(channelID, "Ich hab heut leider kein Foto für dich.");
+                //    break;
+                //case 'glübe':
+                //    respond(channelID, "Das Beste am Tag bist du ! :heart_exclamation:");
+                //    break;
+                //case 'mimimi':
+                //    respond(channelID, "Vom Mond aus betrachtet spielt das ganze keine so große Rolle mehr.");
+                //    break;
                 case 'newsletter':
                     if (userID === "25244025017611059s" || userID === "228486937059655680") {
                         respond("561116168199602176", "Kim hat soeben einen neuen Newsletter per Mail verschickt - @everyone Schaut rein :wink:")
@@ -147,9 +152,9 @@ if (cluster.isWorker) {
                         respond(channelID, "Dazu hast du leider keine Berechtigungen, sorry!");
                     }
                     break;
-                case 'wave':
-                    respond(channelID, "<@255311220821852160> is wonderful.");
-                    break;
+                //case 'wave':
+                //    respond(channelID, "<@255311220821852160> is wonderful.");
+                //    break;
 				case 'commands':
                     bot.sendMessage({
                         to: channelID,
@@ -272,6 +277,46 @@ if (cluster.isWorker) {
         }
     });
 
+    function checkCommand(channelID, cmd, args) {
+        var cmdsandInfo = readDataset("./cmd.txt", "<cmd>\n");
+        cmdsandInfo
+        var CMDS;
+        for (var i = 0; i < cmdsandInfo.length - 1; i++) {
+            var CMD = cmdsandInfo[i].split(";");
+            if (cmd === CMD[0]) {
+                if (CMD[1] === "text") {
+                    sendText(channelID, CMD[2], args, userID);
+                    return true;
+                }
+                else if (CMD[1] === "file") {
+                    sendTextFromFile(channelID, CMD[2], CMD[3], args, userID);
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    function sendText(channelID, Text, args, userID) {
+        Text = Text.replace("@user", "<!" + userID + ">");
+        Text = Text.replace("@zweiter", args[1]);
+
+        respond(channelID, Text);
+    }
+
+    function sendTextFromFile(channelID, File, Delimiter, args, userID) {
+        if (!(args[1] === "")) {
+            var allContent = readDataset(File, Delimiter);
+            if (allContent[(args[1]-1)] === "")
+                sendText(channelID, "Die Nummer" + args[1] + " ist noch nicht vorhanden.", args, userID);
+            else
+                sendText(channelID, allContent[(args[1]-1)], args, userID);
+        }
+        else {
+            sendText(channelID, randomElement(File, Delimiter), args, userID);
+        }
+    }
+
     function readDataset(file, delimiter) {
         var fs = require("fs");
         var text = fs.readFileSync(file).toString('utf-8');
@@ -301,9 +346,10 @@ if (cluster.isWorker) {
 	function knuff(channelID, userID, zwei) {
 	console.log(zwei)
         var el = randomElement("./knuff.txt", "<knuff>");
-	el = el.replace("\n","");
+        el = el.replace("\n", "");
         var Text = el.replace("<zwei>", zwei);
-        respond(channelID,"<@" + userID +"> "+Text)
+        
+        respond(channelID, "<@" + userID + ">" + Text)
     }
 
     function checkblog(channelID, userID) {
