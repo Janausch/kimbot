@@ -80,33 +80,33 @@ if (cluster.isWorker) {
             switch (cmd.toLowerCase()) { // ignore case in commands
                 case 'addjoke':
                     if (typeof fuehr[0] === "undefined") {
-                        respond(channelID, "Irgendwas is superdoof :( Hast du deinen Witz in Anführungszeichen gesetzt?");
+                        respond(channelID, "Irgendwas is superdoof :( Hast du deinen Witz in AnfÃ¼hrungszeichen gesetzt?");
                     } else {
                         fs.appendFile("witze.txt", fuehr[0] + "<joke>", logError);
                         var text = fs.readFileSync("./witze.txt").toString('utf-8');
                         var textByLine = text.split("<joke>");
-                        respond(channelID, "Witz (Nr. " + textByLine.length + ") erfolgreich ergänzt, vielen Dank für deinen Beitrag.");
+                        respond(channelID, "Witz (Nr. " + textByLine.length + ") erfolgreich ergÃ¤nzt, vielen Dank fÃ¼r deinen Beitrag.");
                     }
                     break;
                 case 'addquote':
                     if (typeof fuehr[0] === "undefined") {
-                        respond(channelID, "Irgendwas is superdoof :( Hast du dein Zitat in Anführungszeichen gesetzt?");
+                        respond(channelID, "Irgendwas is superdoof :( Hast du dein Zitat in AnfÃ¼hrungszeichen gesetzt?");
                     } else {
                         fs.appendFile("quotes.txt", fuehr[0] + "<quote>", logError);
                         var text = fs.readFileSync("./quotes.txt").toString('utf-8');
                         var textByLine = text.split("<quote>");
-                        respond(channelID, "Zitat (Nr. " + textByLine.length + ") erfolgreich ergänzt, vielen Dank für deinen Beitrag.");
+                        respond(channelID, "Zitat (Nr. " + textByLine.length + ") erfolgreich ergÃ¤nzt, vielen Dank fÃ¼r deinen Beitrag.");
                     }
                     break;
                 case 'addmoti':
                     if (typeof fuehr[0] === "undefined") {
-                        respond(channelID, "Irgendwas is superdoof :( Hast du deine Motivation in Anführungszeichen gesetzt?");
+                        respond(channelID, "Irgendwas is superdoof :( Hast du deine Motivation in AnfÃ¼hrungszeichen gesetzt?");
                         break;
                     } else {
                         fs.appendFile("motivation.txt", fuehr[0] + "<moti>", logError);
                         var text = fs.readFileSync("./motivation.txt").toString('utf-8');
                         var textByLine = text.split("<moti>");
-                        respond(channelID, "Motivation (Nr. " + textbyLine.length + ") erfolgreich ergänzt, vielen Dank für deinen Beitrag.");
+                        respond(channelID, "Motivation (Nr. " + textbyLine.length + ") erfolgreich ergÃ¤nzt, vielen Dank fÃ¼r deinen Beitrag.");
                         break;
                     }
                 case 'status':
@@ -116,7 +116,7 @@ if (cluster.isWorker) {
                     //    respond(channelID, "My Body is ready for you <@!" + userID + ">");
                     //    break;
                 case 'commands':
-                    respond(channelID, '*Diese Commands sind verfügbar:*\n\n *Allgemein:* \n\n # !wave \n # !social \n # !thomas \n # !motivation \n # !mimimi \n # !quote \n # !joke \n # !addjoke \n # !addmoti # \n # !addquote \n \n Freiraumbot is created by <@252440250176110592>');
+                    respond(channelID, '*Diese Commands sind verfÃ¼gbar:*\n\n *Allgemein:* \n\n # !wave \n # !social \n # !thomas \n # !motivation \n # !mimimi \n # !quote \n # !joke \n # !addjoke "Witz hier einfÃ¼gen (in AnfÃ¼hrungszeichen)"\n # !addmoti "Motivationsspruch hier einfÃ¼gen (in AnfÃ¼hrungszeichen)"# \n # !addquote "Zitat hier einfÃ¼gen (in AnfÃ¼hrungszeichen)"\n \n Freiraumbot is created by <@252440250176110592>');
                     break;
                 case '#bestof':
                     rnd(channelID, userID);
@@ -134,16 +134,16 @@ if (cluster.isWorker) {
                     checkblog(channelID, userID);
                     break;
                 case 'thomas':
-                    respond(channelID, "Das Leben ist wie eine Schachtel Pralinen – Alles zum Kotzen.");
+                    respond(channelID, "Das Leben ist wie eine Schachtel Pralinen â€“ Alles zum Kotzen.");
                     break;
                 case 'ne':
-                    respond(channelID, "Ich hab heut leider kein Foto für dich.");
+                    respond(channelID, "Ich hab heut leider kein Foto fÃ¼r dich.");
                     break;
-                case 'glübe':
+                case 'glÃ¼be':
                     respond(channelID, "Das Beste am Tag bist du ! :heart_exclamation:");
                     break;
                 case 'mimimi':
-                    respond(channelID, "Vom Mond aus betrachtet spielt das ganze keine so große Rolle mehr.");
+                    respond(channelID, "Vom Mond aus betrachtet spielt das ganze keine so groÃŸe Rolle mehr.");
                     break;
                 case 'newsletter':
                     if (userID === "25244025017611059s" || userID === "228486937059655680") {
@@ -272,7 +272,7 @@ if (cluster.isWorker) {
                 return "enabled";
             }
         }
-        respond(channelID, "Sorry, dieser Command ist nur für die ganz hohen Tiere vorgesehen.");
+        respond(channelID, "Sorry, dieser Command ist nur fÃ¼r die ganz hohen Tiere vorgesehen.");
         return "disabled";
     }
 
@@ -280,7 +280,7 @@ if (cluster.isWorker) {
         var myMember = bot.servers[serverid].members[userID];
         var counter;
         if (typeof myMember === "undefined") {
-            respond(channelID, "Sorry Baby, dieser Command steht nur Mitgliedern zur Verfügung.");
+            respond(channelID, "Sorry Baby, dieser Command steht nur Mitgliedern zur VerfÃ¼gung.");
             // FIXME: return ?;
         } else {
             for (counter = 0; counter < myMember.roles.length; counter++) {
@@ -289,7 +289,7 @@ if (cluster.isWorker) {
                     return "enabled";
                 }
             }
-            respond(channelID, "Sorry Baby, dieser Command steht nur Mitgliedern zur Verfügung.");
+            respond(channelID, "Sorry Baby, dieser Command steht nur Mitgliedern zur VerfÃ¼gung.");
             return "disabled";
         }
     }
@@ -309,12 +309,12 @@ if (cluster.isWorker) {
                 console.log(err);
             } else {
                 if (res.stream === null) {
-                    console.log('Streamer ist offline. Kein Announcement. Prüfe in 60 Sekunden.');
+                    console.log('Streamer ist offline. Kein Announcement. PrÃ¼fe in 60 Sekunden.');
                 } else {
                     respond(livestreamchannel, "@everyone xxx ist live ! - " + res.stream.channel.status + " - Kommen Sie, Kommen Sie ! " + res.stream.channel.url);
-                    console.log("Streamer ist online ! Remove Interval für Twitch Announcement");
+                    console.log("Streamer ist online ! Remove Interval fÃ¼r Twitch Announcement");
                     timer.clearInterval();
-                    console.log("Starte Offlineprüfung");
+                    console.log("Starte OfflineprÃ¼fung");
                     var check = new NanoTimer();
                     check.setInterval(function() {
                         recheck(check);
@@ -333,7 +333,7 @@ if (cluster.isWorker) {
             } else {
                 if (res.stream === null) {
                     // console.log('offline');
-                    console.log('Stream ist jetzt wieder offline - starte Twitchprüfung');
+                    console.log('Stream ist jetzt wieder offline - starte TwitchprÃ¼fung');
                     check.clearInterval();
                     var timer = new NanoTimer();
                     timer.setInterval(function() {
