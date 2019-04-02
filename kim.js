@@ -263,7 +263,7 @@ if (cluster.isWorker) {
                                 },
                             ],
                             footer: {
-                                text: "Take nothing but pictures, leave nothing but footprints, kill nothing but time.",
+                                text: "Freiraumbot is created by <@252440250176110592>",
                             },
                             "description": ""
                         }
