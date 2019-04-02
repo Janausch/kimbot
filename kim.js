@@ -51,7 +51,7 @@ if (cluster.isWorker) {
         token: auth.token,
         autorun: true
     });
-    bot.on('ready', function (evt) {
+    bot.on('ready', function(evt) {
         logger.info('Connected');
         logger.info('Logged in as: ');
 
@@ -63,7 +63,7 @@ if (cluster.isWorker) {
         logger.info(bot.username + ' - (' + bot.id + ')');
         logger.info('Bot is online.');
         var timer = new NanoTimer;
-        timer.setInterval(function () {
+        timer.setInterval(function() {
             checkblog(timer);
         }, '', '900s');
     });
@@ -110,13 +110,13 @@ if (cluster.isWorker) {
                         break;
                     }
                 case 'status':
-                      respond(channelID, "Ich bin da :) <@!" + userID + ">");
-					  break;
-                //case 'newslett':
-                //    respond(channelID, "My Body is ready for you <@!" + userID + ">");
-                //    break;
+                    respond(channelID, "Ich bin da :) <@!" + userID + ">");
+                    break;
+                    //case 'newslett':
+                    //    respond(channelID, "My Body is ready for you <@!" + userID + ">");
+                    //    break;
                 case 'commands':
-                    respond(channelID, '*Diese Commands sind verfügbar:*\n\n *Allgemein:* \n\n # !wave \n # !social \n # !thomas \n # !motivation \n # !mimimi \n # !quote \n # !joke \n # !addjoke \n # !addmoti # \n # !addquote \n \n Freiraumbot is created by <@252440250176110592>');
+                    respond(channelID, '*Diese Commands sind verfügbar:*\n\n *Allgemein:* \n\n # !wave \n # !social \n # !thomas \n # !motivation \n # !mimimi \n # !quote \n # !joke \n # !addjoke "Witz hier einfügen (in Anführungszeichen)"\n # !addmoti "Motivationsspruch hier einfügen (in Anführungszeichen)"# \n # !addquote "Zitat hier einfügen (in Anführungszeichen)"\n \n Freiraumbot is created by <@252440250176110592>');
                     break;
                 case '#bestof':
                     rnd(channelID, userID);
@@ -145,12 +145,12 @@ if (cluster.isWorker) {
                 case 'mimimi':
                     respond(channelID, "Vom Mond aus betrachtet spielt das ganze keine so große Rolle mehr.");
                     break;
-				case 'newsletter':
-					if (userID === "25244025017611059s" || userID === "228486937059655680") {
-						respond("561116168199602176", "Kim hat soeben einen neuen Newsletter per Mail verschickt - @everyone Schaut rein :wink:")
-					} else {
-						respond(channelID, "Dazu hast du leider keine Berechtigungen, sorry!");
-					}
+                case 'newsletter':
+                    if (userID === "25244025017611059s" || userID === "228486937059655680") {
+                        respond("561116168199602176", "Kim hat soeben einen neuen Newsletter per Mail verschickt - @everyone Schaut rein :wink:")
+                    } else {
+                        respond(channelID, "Dazu hast du leider keine Berechtigungen, sorry!");
+                    }
                     break;
                 case 'wave':
                     respond(channelID, "<@255311220821852160> is wonderful.");
@@ -173,31 +173,31 @@ if (cluster.isWorker) {
                             },
 
                             fields: [{
-                                name: "Instagram",
-                                value: "https://instagram.com/freiraumreh"
-                            }, {
-                                name: "Twitter",
-                                value: "https://twitter.com/freiraumreh"
-                            },
-                            {
-                                name: "Pinterest",
-                                value: "https://www.pinterest.de/freiraumreh/"
-                            }, {
-                                name: "Twitch",
-                                value: "https://twitch.tv/freiraumreh"
-                            }, {
-                                name: "Discord",
-                                value: "https://discord.gg/dVFE3vp"
-                            }, {
-                                name: "Soundcloud",
-                                value: "https://soundcloud.com/user-401046924"
-                            }, {
-                                name: "Website/Blog",
-                                value: "https://freiraumreh.de"
-                            }, {
-                                name: "Newsletter",
-                                value: "https://freiraumreh.de/newsletter/"
-                            },
+                                    name: "Instagram",
+                                    value: "https://instagram.com/freiraumreh"
+                                }, {
+                                    name: "Twitter",
+                                    value: "https://twitter.com/freiraumreh"
+                                },
+                                {
+                                    name: "Pinterest",
+                                    value: "https://www.pinterest.de/freiraumreh/"
+                                }, {
+                                    name: "Twitch",
+                                    value: "https://twitch.tv/freiraumreh"
+                                }, {
+                                    name: "Discord",
+                                    value: "https://discord.gg/dVFE3vp"
+                                }, {
+                                    name: "Soundcloud",
+                                    value: "https://soundcloud.com/user-401046924"
+                                }, {
+                                    name: "Website/Blog",
+                                    value: "https://freiraumreh.de"
+                                }, {
+                                    name: "Newsletter",
+                                    value: "https://freiraumreh.de/newsletter/"
+                                },
                             ],
                             footer: {
                                 text: "Take nothing but pictures, leave nothing but footprints, kill nothing but time.",
@@ -224,7 +224,7 @@ if (cluster.isWorker) {
     }
 
     function joke(channelID, userID) {
-        var el = randomElement("./witze.txt","<joke>");
+        var el = randomElement("./witze.txt", "<joke>");
         respond(channelID, "```" + el + "```");
     }
 
@@ -237,7 +237,7 @@ if (cluster.isWorker) {
         var el = randomElement("./quotes.txt", "<quote>");
         respond(channelID, "```" + el + "```");
     }
-	
+
 
 
     function checkblog(channelID, userID) {
@@ -250,7 +250,7 @@ if (cluster.isWorker) {
             var title = feed.items[0].title;
             var link = feed.items[0].link;
 
-            fs.readFile('blog.txt', 'utf8', function (err, data) {
+            fs.readFile('blog.txt', 'utf8', function(err, data) {
                 if (err) throw err;
                 if (data === title) {
                     console.log("Kein neuer Eintrag auf Freiraumreh.de/rss/ vorhanden.");
@@ -295,7 +295,7 @@ if (cluster.isWorker) {
     }
 
 
-    String.prototype.capitalize = function () {
+    String.prototype.capitalize = function() {
         return this.charAt(0).toUpperCase() + this.slice(1);
     }
 
@@ -316,7 +316,7 @@ if (cluster.isWorker) {
                     timer.clearInterval();
                     console.log("Starte Offlineprüfung");
                     var check = new NanoTimer();
-                    check.setInterval(function () {
+                    check.setInterval(function() {
                         recheck(check);
                     }, '', '90s');
                 }
@@ -336,7 +336,7 @@ if (cluster.isWorker) {
                     console.log('Stream ist jetzt wieder offline - starte Twitchprüfung');
                     check.clearInterval();
                     var timer = new NanoTimer();
-                    timer.setInterval(function () {
+                    timer.setInterval(function() {
                         twitch(timer);
                     }, '', '60s');
                 } else {
