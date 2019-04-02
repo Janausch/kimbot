@@ -218,9 +218,6 @@ if (cluster.isWorker) {
 
                     });
                     break;
-            }
-        }
-    });
                 case 'social':
                     bot.sendMessage({
                         to: channelID,
