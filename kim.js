@@ -299,9 +299,9 @@ if (cluster.isWorker) {
         respond(channelID, "```" + el + "```");
     }
 	function knuff(channelID, userID, zwei) {
-		console.log(zwei)
+	console.log(zwei)
         var el = randomElement("./knuff.txt", "<knuff>");
-        respond(channelID, "<@!" + userID + ">" + el)
+        respond(channelID, "<@!" + userID + ">" + '"' + el + '"')
     }
 
     function checkblog(channelID, userID) {
