@@ -116,7 +116,7 @@ if (cluster.isWorker) {
                 //    respond(channelID, "My Body is ready for you <@!" + userID + ">");
                 //    break;
                 case 'commands':
-                    respond(channelID, '*Diese Commands sind verfügbar:*\n\n *Allgemein:* \n\n # !wave \n # !social \n # !thomas \n # !motivation \n # !mimimi \n # !quote \n # !joke \n # !addjoke \n # !addmoti # \n # !addquote \n \n Freiraumbot is created by <@252440250176110592>');
+                    respond(channelID, '*Diese Commands sind verfügbar:*\n\n *Allgemein:* \n\n # !wave \n # !social \n # !thomas \n # !motivation \n # !mimimi \n # !quote \n # !joke \n # !addjoke "Witz hier einfügen (in Anführungszeichen)"\n # !addmoti "Motivationsspruch hier einfügen (in Anführungszeichen)"# \n # !addquote "Zitat hier einfügen (in Anführungszeichen)"\n \n Freiraumbot is created by <@252440250176110592>');
                     break;
                 case '#bestof':
                     rnd(channelID, userID);
