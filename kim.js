@@ -115,9 +115,6 @@ if (cluster.isWorker) {
                     //case 'newslett':
                     //    respond(channelID, "My Body is ready for you <@!" + userID + ">");
                     //    break;
-                case 'commands':
-                    respond(channelID, '*Diese Commands sind verfügbar:*\n\n *Allgemein:* \n\n # !wave \n # !social \n # !thomas \n # !motivation \n # !mimimi \n # !quote \n # !joke \n # !addjoke "Witz hier einfügen (in Anführungszeichen)"\n # !addmoti "Motivationsspruch hier einfügen (in Anführungszeichen)"# \n # !addquote "Zitat hier einfügen (in Anführungszeichen)"\n \n Freiraumbot is created by <@252440250176110592>');
-                    break;
                 case '#bestof':
                     rnd(channelID, userID);
                     break;
@@ -155,6 +152,75 @@ if (cluster.isWorker) {
                 case 'wave':
                     respond(channelID, "<@255311220821852160> is wonderful.");
                     break;
+				case 'commands':
+                    bot.sendMessage({
+                        to: channelID,
+                        message: '',
+                        embed: {
+                            color: 0x9482C9,
+                            title: "",
+                            url: "https://freiraumreh.de",
+                            description: "",
+                            thumbnail: {
+                                url: "https://pbs.twimg.com/profile_images/1081178168139173888/gu-s0K9T_400x400.jpg"
+                            },
+                            author: {
+                                name: "Verfügbare Befehle:",
+                                icon_url: "https://www.freiraumreh.de/wp-content/uploads/2018/11/cropped-freiraumreh3k-32x32.jpg"
+                            },
+
+                            fields: [{
+                                    name: "!joke",
+                                    value: "Zufälliger Witz aus Textdatenbank."
+                                }, {
+                                    name: "!status",
+                                    value: "Status des Freiraumbots."
+                                },{
+                                    name: "!social",
+                                    value: "Soziale Netzwerke von Kim."
+                                }, {
+                                    name: "!motivation",
+                                    value: "Zufällige Motivation aus Textdatenbank"
+                                }, {
+                                    name: "!quotes",
+                                    value: "Zufälliges Zitat aus Textdatenbank"
+                                }, {
+                                    name: "!addjoke",
+                                    value: "Joke in Anführungszeichen als Argument dahinter."
+                                }, {
+                                    name: "!addmoti",
+                                    value: "Motivation in Anführungszeichen als Argument dahinter."
+                                }, {
+                                    name: "!addquote",
+                                    value: "Zitat in Anführungszeichen als Argument dahinter."
+                                },{
+                                    name: "!thomas",
+                                    value: "Das weiß nur Thomas."
+                                }, {
+                                    name: "!wave",
+                                    value: "Wave halt, kann man nix machen (:"
+                                }, {
+                                    name: "!mimimi",
+                                    value: "Mimimimimimi...."
+                                }, {
+                                    name: "!glübe",
+                                    value: "Liebe ist für alle da, oh tralala."
+                                }, {
+                                    name: "!newsletter",
+                                    value: "only available for Kim."
+                                },
+                            ],
+                            footer: {
+                                text: "Take nothing but pictures, leave nothing but footprints, kill nothing but time.",
+                            },
+                            "description": ""
+                        }
+
+                    });
+                    break;
+            }
+        }
+    });
                 case 'social':
                     bot.sendMessage({
                         to: channelID,
