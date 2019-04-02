@@ -301,8 +301,8 @@ if (cluster.isWorker) {
 	function knuff(channelID, userID, zwei) {
 	console.log(zwei)
         var el = randomElement("./knuff.txt", "<knuff>");
-        var Text = el.replace("<zwei>", "<@" + userID+">");
-        respond(channelID, Text)
+        var Text = el.replace("<zwei>", "" + zwei+"");
+        respond(channelID,"<@" + userID +"> "+Text)
     }
 
     function checkblog(channelID, userID) {
