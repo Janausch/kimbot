@@ -134,16 +134,16 @@ if (cluster.isWorker) {
                     checkblog(channelID, userID);
                     break;
                 case 'thomas':
-                    respond(channelID, "Das Leben ist wie eine Schachtel Pralinen – Alles zum Kotzen.");
+                    respond(channelID, "Das Leben ist wie eine Schachtel Pralinen - Alles zum Kotzen.");
                     break;
                 case 'ne':
-                    respond(channelID, "Ich hab heut leider kein Foto für dich.");
+                    respond(channelID, "Ich hab heut leider kein Foto fÃ¼r dich.");
                     break;
-                case 'glübe':
+                case 'glÃ¼be':
                     respond(channelID, "Das Beste am Tag bist du ! :heart_exclamation:");
                     break;
                 case 'mimimi':
-                    respond(channelID, "Vom Mond aus betrachtet spielt das ganze keine so große Rolle mehr.");
+                    respond(channelID, "Vom Mond aus betrachtet spielt das ganze keine so groÃŸe Rolle mehr.");
                     break;
                 case 'newsletter':
                     if (userID === "25244025017611059s" || userID === "228486937059655680") {
