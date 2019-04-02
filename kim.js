@@ -279,8 +279,6 @@ if (cluster.isWorker) {
 
     function checkCommand(channelID, cmd, args) {
         var cmdsandInfo = readDataset("./cmd.txt", "<cmd>\n");
-        cmdsandInfo
-        var CMDS;
         for (var i = 0; i < cmdsandInfo.length - 1; i++) {
             var CMD = cmdsandInfo[i].split(";");
             if (cmd === CMD[0]) {
