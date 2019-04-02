@@ -1,7 +1,7 @@
- klaut " + zwei + " 2 Gummibärchen ... wie gemein!<knuff>
- verteilt Küsschen und " + zwei + "hat einen abbekommen :heart:.<knuff>
- sucht nach der großen Liebe...eventuell fühlt " + zwei + " genauso?<knuff>
- hat Kekse gebacken, möchte " + zwei + "auch einen?"<knuff>
- ist verwirrt und brauch Zuneigung von " + zwei + "..."<knuff>
- teilt sein letztes Knoppers mit " + zwei + " ..." <knuff>
- wünscht " + zwei + " einen wunderschönen Tag mit ganz viel Liebe!" <knuff>
+ klaut <zwei> 2 Gummibärchen ... wie gemein!<knuff>
+ verteilt Küsschen und <zwei> hat einen abbekommen :heart:.<knuff>
+ sucht nach der großen Liebe...eventuell fühlt <zwei> genauso?<knuff>
+ hat Kekse gebacken, möchte <zwei> auch einen?"<knuff>
+ ist verwirrt und brauch Zuneigung von <zwei>..."<knuff>
+ teilt sein letztes Knoppers mit <zwei> ..." <knuff>
+ wünscht <zwei> einen wunderschönen Tag mit ganz viel Liebe!" <knuff>
